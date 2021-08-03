@@ -1,0 +1,46 @@
+group 'com.baidu.flutter_bmfmap'
+version '1.0'
+
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.1'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 16
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+
+}
+
+repositories {
+    mavenLocal()
+}
+
+
+dependencies {
+    implementation fileTree(includes: ['*.jar'], dir: 'libs')
+    implementation rootProject.findProject(":flutter_baidu_mapapi_base")
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
+}
