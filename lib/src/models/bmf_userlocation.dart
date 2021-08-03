@@ -143,13 +143,13 @@ class BMFLocation implements BMFModel {
   @override
   Map<String, Object?> toMap() {
     return {
-      'coordinate': "${this.coordinate?.toMap()}",
-      'altitude': "${this.altitude}",
-      'horizontalAccuracy': "${this.horizontalAccuracy}",
-      'verticalAccuracy': "${this.verticalAccuracy}",
-      'course': "${this.course}",
-      'speed': "${this.speed}",
-      'accuracy': "${this.accuracy}",
+      'coordinate': this.coordinate?.toMap(),
+      'altitude': this.altitude,
+      'horizontalAccuracy': this.horizontalAccuracy,
+      'verticalAccuracy': this.verticalAccuracy,
+      'course': this.course,
+      'speed': this.speed,
+      'accuracy': this.accuracy,
       'satellitesNum': this.satellitesNum,
       'timestamp': this.timestamp
     };

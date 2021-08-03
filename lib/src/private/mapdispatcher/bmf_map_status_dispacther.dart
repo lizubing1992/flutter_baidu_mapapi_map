@@ -15,7 +15,7 @@ class BMFMapStatusDispatcher {
 
   /// 更新地图属性
   Future<bool> updateMapOptions(
-      MethodChannel _mapChannel, BMFMapOptions change) async {
+      MethodChannel? _mapChannel, BMFMapOptions? change) async {
     if (change == null || _mapChannel == null) {
       return false;
     }
@@ -31,7 +31,7 @@ class BMFMapStatusDispatcher {
   }
 
   /// map放大一级比例尺
-  Future<bool> zoomIn(MethodChannel _mapChannel) async {
+  Future<bool> zoomIn(MethodChannel? _mapChannel) async {
     if (_mapChannel == null) {
       return false;
     }
@@ -46,7 +46,7 @@ class BMFMapStatusDispatcher {
   }
 
   /// map缩小一级比例尺
-  Future<bool> zoomOut(MethodChannel _mapChannel) async {
+  Future<bool> zoomOut(MethodChannel? _mapChannel) async {
     if (_mapChannel == null) {
       return false;
     }
@@ -67,8 +67,8 @@ class BMFMapStatusDispatcher {
   /// slow 路况缓行对应的颜色
   /// congestion 路况拥堵对应的颜色
   /// severeCongestion 路况严重拥堵对应的颜色
-  Future<bool> setCustomTrafficColor(MethodChannel _mapChannel, Color smooth,
-      Color slow, Color congestion, Color severeCongestion) async {
+  Future<bool> setCustomTrafficColor(MethodChannel? _mapChannel, Color? smooth,
+      Color? slow, Color? congestion, Color? severeCongestion) async {
     if (_mapChannel == null ||
         smooth == null ||
         slow == null ||
@@ -79,10 +79,10 @@ class BMFMapStatusDispatcher {
     bool result = false;
     try {
       Map<String, String> colorMap = {
-        'smooth': "${smooth.value.toRadixString(16)}",
-        'slow': "${slow.value.toRadixString(16)}",
-        'congestion': "${congestion.value.toRadixString(16)}",
-        'severeCongestion': "${severeCongestion.value.toRadixString(16)}"
+        'smooth': smooth.value.toRadixString(16),
+        'slow': slow.value.toRadixString(16),
+        'congestion': congestion.value.toRadixString(16),
+        'severeCongestion': severeCongestion.value.toRadixString(16)
       };
       result = (await _mapChannel.invokeMethod(
           BMFMapStateMethodId.kMapSetCustomTrafficColorMethod,
@@ -99,8 +99,8 @@ class BMFMapStatusDispatcher {
   /// animateDurationMs 动画更新时间
   ///
   /// （注意：animateDurationMs该字段仅对android生效，若animateDurationMs !=0 ，iOS则启动默认动画设置mapStatus，反之不开启动画设置mapStatus）
-  Future<bool> setNewMapStatus(MethodChannel _mapChannel,
-      {required BMFMapStatus mapStatus, int? animateDurationMs}) async {
+  Future<bool> setNewMapStatus(MethodChannel? _mapChannel,
+      {required BMFMapStatus? mapStatus, int? animateDurationMs}) async {
     if (_mapChannel == null || mapStatus == null) {
       return false;
     }
@@ -553,9 +553,9 @@ class BMFMapStatusDispatcher {
   Future<bool?> setCustomMapStyleWithOption(
       MethodChannel? _mapChannel,
       BMFCustomMapStyleOption? customMapStyleOption,
-      void Function(String path) preload,
-      void Function(String path) success,
-      void Function(int errorCode, String path) error) async {
+      void Function(String path)? preload,
+      void Function(String path)? success,
+      void Function(int errorCode, String path)? error) async {
     if (_mapChannel == null || customMapStyleOption == null) {
       return false;
     }
