@@ -39,7 +39,7 @@ class BMFMapUserLocationDispatcher {
           {
             'userTrackingMode': userTrackingMode.index,
             'enableDirection': enableDirection,
-            'customMarker': "$customMarker"
+            'customMarker': customMarker
           } as dynamic)) as bool;
     } on PlatformException catch (e) {
       print(e.toString());

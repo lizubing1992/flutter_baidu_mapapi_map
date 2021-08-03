@@ -223,7 +223,7 @@ class BMFMapStatusDispatcher {
           {
             'amount': amount,
             'focus': focus.toMap(),
-            'animateDurationMs': "$animateDurationMs"
+            'animateDurationMs': animateDurationMs
           } as dynamic)) as bool;
     } on PlatformException catch (e) {
       print(e.toString());
@@ -249,7 +249,7 @@ class BMFMapStatusDispatcher {
           {
             'coordinate': coordinate.toMap(),
             'animated': animated,
-            'animateDurationMs': "$animateDurationMs"
+            'animateDurationMs': animateDurationMs
           } as dynamic)) as bool;
     } on PlatformException catch (e) {
       print(e.toString());
@@ -276,7 +276,7 @@ class BMFMapStatusDispatcher {
           {
             'coordinate': coordinate.toMap(),
             'zoom': zoom,
-            'animateDurationMs': "$animateDurationMs"
+            'animateDurationMs': animateDurationMs
           } as dynamic)) as bool;
     } on PlatformException catch (e) {
       print(e.toString());
